@@ -45,10 +45,6 @@ public class ChatController {
         
         ConversationSession session = chatbotService.getSession(request.getSessionId());
         
-        if (session == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-        
         ChatResponse response = new ChatResponse(
             request.getSessionId(),
             botResponse,
