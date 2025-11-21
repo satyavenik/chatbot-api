@@ -5,7 +5,6 @@ import com.chatbot.api.model.ChatResponse;
 import com.chatbot.api.model.ConversationSession;
 import com.chatbot.api.service.ChatbotService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -64,7 +63,7 @@ public class ChatController {
         
         return ResponseEntity.ok(session);
     }
-    
+
     @DeleteMapping("/session/{sessionId}")
     public ResponseEntity<Map<String, String>> clearSession(@PathVariable String sessionId) {
         chatbotService.clearSession(sessionId);
@@ -72,7 +71,7 @@ public class ChatController {
         response.put("message", "Session cleared successfully");
         return ResponseEntity.ok(response);
     }
-    
+
     @GetMapping("/health")
     public ResponseEntity<Map<String, Object>> health() {
         Map<String, Object> response = new HashMap<>();
